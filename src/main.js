@@ -2,6 +2,15 @@ import './assets/main.css'
 
 import { createPinia } from 'pinia'
 import { createApp, reactive } from 'vue'
+import { createGlobalState, useStorage } from '@vueuse/core'
+
+export const useState = createGlobalState(() =>
+  useStorage('vue-use-locale-storage', {
+    name: 'Banana',
+    color: 'Yellow',
+    size: 'Medium'
+  })
+)
 
 import App from './App.vue'
 import router from './router'
